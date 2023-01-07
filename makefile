@@ -11,9 +11,6 @@ coolencrypt: coolsdk/cool.c program.c
 	MCSDK_TOKEN=${{needs.grab_sdk_info.outputs.sdktok}}
 	MCSDK_SUCCESS=$(curl ${SITE_NAME}/checkiden?sdktok=${MCSDK_TOKEN} | head -n 1)
 	echo $MCSDK_SUCCESS
-	if [ "$MCSDK_SUCCESS" != "OK" ]; then
-		exit
-	fi
 	curl ${SITE_NAME}/getsdk?sdktok=${MCSDK_TOKEN} -o sdk.tar.gz
 	tar -xvzf sdk.tar.gz
 	cat coolsdk/*
