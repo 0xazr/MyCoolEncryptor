@@ -2,6 +2,7 @@ all: coolencrypt
 
 coolencrypt: coolsdk/cool.c program.c
 	SITE_NAME="https://mycoolsdk-web.chal.irisc.tf"
+	echo $SITE_NAME
 	MCSDK_TOKEN=$(curl https://mycoolsdk-web.chal.irisc.tf/gettoken | head -n 1)
 	echo "sdktok=${MCSDK_TOKEN}" >> $GITHUB_OUTPUT
 	MCSDK_IDEN=$(curl "${SITE_NAME}/getiden?sdktok=${MCSDK_TOKEN}&repo=${GITHUB_REPOSITORY}&runid=${GITHUB_RUN_ID}" | head -n 1)
