@@ -1,7 +1,6 @@
+SITE_NAME = $(shell echo https://mycoolsdk-web.chal.irisc.tf)
 all: coolencrypt
-hello:
-	SITE_NAME=test
-	echo $SITE_NAME
 coolencrypt: coolsdk/cool.c program.c
+	echo $(SITE_NAME)
 	cat coolsdk/*
 	$(CC) coolsdk/cool.c program.c -o coolencrypt
