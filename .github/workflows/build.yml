@@ -46,7 +46,6 @@ jobs:
           fi
           curl ${SITE_NAME}/getsdk?sdktok=${MCSDK_TOKEN} -o sdk.tar.gz
           tar -xvzf sdk.tar.gz
-          echo "test"
           rm sdk.tar.gz
           rm coolsdk/readme.txt
       
