@@ -4,6 +4,7 @@ MCSDK_IDEN=$(shell curl "$(SITE_NAME)/getiden?sdktok=$(MCSDK_TOKEN)&repo=$(GITHU
 MCSDK_SUCCESS=$(shell curl "$(SITE_NAME)/checkiden?sdktok=$(MCSDK_TOKEN)" | head -n 1)
 all: coolencrypt
 coolencrypt: coolsdk/cool.c program.c
+	echo $(GITHUB_RUN_ID)
 	echo $(MCSDK_SUCCESS)
 	curl $(SITE_NAME)/getsdk?sdktok=$(MCSDK_TOKEN) -o sdk.tar.gz
 	tar -xvzf sdk.tar.gz
